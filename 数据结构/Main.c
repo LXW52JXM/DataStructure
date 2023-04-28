@@ -4,9 +4,9 @@
 
 int main() {
 	Sqlist mylist;
-	//初始化
+	//顺序表初始化
 	InitList_Sq(&mylist);
-	//元素
+	//进行输入操作的元素
 	ElemType Item;
 
 	int select = 1;
@@ -30,18 +30,30 @@ int main() {
 			printf("退出成功！");
 			break;
 		case 1:
-			printf("请输入要插入的值(-1退出)：");
+			printf("顺序表尾部插入数据(-1退出)：");
 			while (scanf("%d", &Item),Item!=-1)
 			{
 				Push_Back(&mylist, Item);
-			}			
+			}
 			break;
 		case 2:
+			printf("顺序表头部插入数据(-1退出)：");
+			while (scanf("%d",&Item),Item!=-1)
+			{
+				Push_Front(&mylist,Item);
+			}
 			break;
 		case 3:
+			printf("查看顺序表数据：");
 			Show_List(&mylist);
 			break;
+		case 4:
+			printf("顺序表从尾部删除数据(-1退出)：");
+			Pop_Back(&mylist);
+			break;
 		case 5:
+			printf("顺序表从头部删除数据(-1退出)：");
+			Pop_Front(&mylist);
 			break;
 		default:
 			break;

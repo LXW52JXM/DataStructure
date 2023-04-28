@@ -29,4 +29,10 @@ Status InitList_Sq(Sqlist *L);
 Status Push_Back(Sqlist *L,ElemType e);
 //顺序表显示所有数据
 Status Show_List(Sqlist *L);
+//顺序表头部插入数据
+Status Push_Front(Sqlist *L, ElemType e);
+//顺序表从尾部删除数据
+Status Pop_Back(Sqlist* L);
+//顺序表从头部删除数据
+Status Pop_Front(Sqlist* L);
 #endif
