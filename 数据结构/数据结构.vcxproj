@@ -146,6 +146,9 @@
   <ItemGroup>
     <ClInclude Include="Sqlist.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\考研资料\数据结构PPT\数据结构笔记.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
