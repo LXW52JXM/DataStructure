@@ -27,7 +27,4 @@
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\考研资料\数据结构PPT\数据结构笔记.md" />
-  </ItemGroup>
 </Project>
