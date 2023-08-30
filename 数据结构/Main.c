@@ -64,6 +64,30 @@ int main() {
 			scanf("%d",&pos);
 			Insert_Pos(&mylist, Item, pos);
 			break;
+		case 7:
+			printf("请输入要查找的数据：");
+			scanf("%d", &Item);
+			int value = Find(&mylist, Item);
+			if (value !=-1)
+			{
+				printf("您查找的值:%d存在，下标是:%d\n",Item, value);
+			}
+			else
+			{
+				printf("您查找的值:%d不存在！\n", Item);
+			}
+			break;
+		case 8:
+			printf("顺序线性表长度为：%d\n", Length(&mylist));
+			break;
+		case 9:
+			printf("请输入要删除的元素位置：");
+			scanf("%d",&pos);
+			ElemType e;//接收删除返回的值
+			if (ListDelete_sq(&mylist, pos, &e)) {
+				printf("位置第%d个元素%d删除成功！", pos, e);
+			};
+			break;
 		default:
 			break;
 		}

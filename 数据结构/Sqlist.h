@@ -37,4 +37,10 @@ Status Pop_Back(Sqlist* L);
 Status Pop_Front(Sqlist* L);
 //顺序线性表指定位置插入数据
 Status Insert_Pos(Sqlist* L,ElemType e,int pos);
+//顺序线性表查找数据
+int Find(Sqlist* L,ElemType e);
+//顺序线性表长度
+int Length(Sqlist* L);
+//顺序线性表删除指定位置的数据并且返回其值
+Status ListDelete_sq(Sqlist* L, int pos, ElemType *e);
 #endif
