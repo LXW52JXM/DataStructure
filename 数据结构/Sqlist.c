@@ -1,7 +1,7 @@
 #include "Sqlist.h"
 #include<stdio.h>
 
-//线性表初始化
+//线性线性表初始化
 Status InitList_Sq(Sqlist *L) {
 	L->elem = (ElemType*)malloc(LIST_INIT_SIZE * sizeof(ElemType));
 	if (!L->elem) exit(OVERFLOW);//存储分配失败
@@ -10,7 +10,7 @@ Status InitList_Sq(Sqlist *L) {
 	return OK;
 };
 
-//顺序表尾部插入数据
+//顺序线性表尾部插入数据
 Status Push_Back(Sqlist* L, ElemType e) {
 	//判断顺序表空间是否已满
 	if (L->length==L->listsize)
@@ -23,8 +23,11 @@ Status Push_Back(Sqlist* L, ElemType e) {
 	return OK;
 };
 
-//顺序表显示所有数据
+//顺序线性表显示所有数据
 Status Show_List(Sqlist* L) {
+	printf("长度：%d\n", L->listsize);
+	printf("存在长度：%d\n", L->length);
+	
 	for (int i = 0; i < L->length; i++)
 	{
 		printf("%d   ",L->elem[i]);
@@ -33,7 +36,7 @@ Status Show_List(Sqlist* L) {
 	return OK;
 };
 
-//顺序表头部插入数据
+//顺序线性表头部插入数据
 Status Push_Front(Sqlist* L, ElemType e) {
 	if (L->length==L->listsize)
 	{
@@ -53,7 +56,7 @@ Status Push_Front(Sqlist* L, ElemType e) {
 	return OK;
 };
 
-//顺序表从尾部删除数据
+//顺序线性表从尾部删除数据
 Status Pop_Back(Sqlist* L) {
 	if (L->length==0)
 	{
@@ -63,7 +66,7 @@ Status Pop_Back(Sqlist* L) {
 	L->length--;
 };
 
-//顺序表从头部删除数据
+//顺序线性表从头部删除数据
 Status Pop_Front(Sqlist* L) {
 	if (L->length==0)
 	{
@@ -76,5 +79,33 @@ Status Pop_Front(Sqlist* L) {
 		L->elem[i] = L->elem[i + 1];
 	}
 	L->length--;
+	return OK;
+}
+
+//顺序线性表指定位置插入数据
+Status Insert_Pos(Sqlist* L, ElemType e, int pos) {
+	//length+1是为了保证顺序线性表插入数据时是顺序线性表是连续的
+	if (pos<1||pos>L->length+1)
+	{
+		printf("插入数据的位置非法，请重新再试！\n");
+		return ERROR;
+	}
+	//当前存储空间已满，增加分配
+	if (L->length==L->listsize)
+	{
+		ElemType *newbase=(ElemType*)realloc(L->elem,(L->listsize+ LISTINCREMENT)*sizeof(ElemType));
+		if (!newbase)//分配失败终止程序
+		{
+			exit(OVERFLOW);
+		}
+		L->elem = newbase;//分配新的基址
+		L->listsize = L->listsize + LISTINCREMENT;//增加存储容量
+	}
+	for (int i = L->length; i >=pos; --i)
+	{
+		L->elem[i] = L->elem[i - 1];//插入位置及之后的元素右移
+	}
+	L->elem[pos-1] = e;
+	L->length++;
 	return OK;
 }

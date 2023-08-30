@@ -8,6 +8,8 @@ int main() {
 	InitList_Sq(&mylist);
 	//进行输入操作的元素
 	ElemType Item;
+	//数据要插入的位置
+	int pos;
 
 	int select = 1;
 	while (select)
@@ -54,6 +56,13 @@ int main() {
 		case 5:
 			printf("顺序表从头部删除数据(-1退出)：");
 			Pop_Front(&mylist);
+			break;
+		case 6:			
+			printf("请输入要插入的数据：");
+			scanf("%d",&Item);
+			printf("请输入要插入的位置：");
+			scanf("%d",&pos);
+			Insert_Pos(&mylist, Item, pos);
 			break;
 		default:
 			break;

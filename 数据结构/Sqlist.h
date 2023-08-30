@@ -20,19 +20,21 @@ typedef int ElemType;
 typedef struct {
 	ElemType* elem;//存储空间基址
 	int length;//当前存在元素的个数
-	int listsize;//当前分配的元素个数（以sizeof(ElemType)为单位）
+	int listsize;//当前可以分配的元素个数（以sizeof(ElemType)为单位，相当于一共有多少个位置）
 }Sqlist;
 
-//顺序表初始化方法
+//顺序线性表初始化方法
 Status InitList_Sq(Sqlist *L);
-//顺序表尾部插入数据
+//顺序线性表尾部插入数据
 Status Push_Back(Sqlist *L,ElemType e);
-//顺序表显示所有数据
+//顺序线性表显示所有数据
 Status Show_List(Sqlist *L);
-//顺序表头部插入数据
+//顺序线性表头部插入数据
 Status Push_Front(Sqlist *L, ElemType e);
-//顺序表从尾部删除数据
+//顺序线性表从尾部删除数据
 Status Pop_Back(Sqlist* L);
-//顺序表从头部删除数据
+//顺序线性表从头部删除数据
 Status Pop_Front(Sqlist* L);
+//顺序线性表指定位置插入数据
+Status Insert_Pos(Sqlist* L,ElemType e,int pos);
 #endif
