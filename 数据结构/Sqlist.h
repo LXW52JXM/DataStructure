@@ -23,6 +23,7 @@ typedef struct {
 	int listsize;//当前可以分配的元素个数（以sizeof(ElemType)为单位，相当于一共有多少个位置）
 }Sqlist;
 
+
 //顺序线性表初始化方法
 Status InitList_Sq(Sqlist *L);
 //顺序线性表尾部插入数据

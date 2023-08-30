@@ -62,6 +62,7 @@ int main() {
 			scanf("%d",&Item);
 			printf("请输入要插入的位置：");
 			scanf("%d",&pos);
+
 			Insert_Pos(&mylist, Item, pos);
 			break;
 		default:
