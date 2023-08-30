@@ -90,7 +90,6 @@ Status Insert_Pos(Sqlist* L, ElemType e, int pos) {
 		printf("插入数据的位置非法，请重新再试！\n");
 		return ERROR;
 	}
-
 	//当前存储空间已满，增加分配
 	if (L->length==L->listsize)
 	{
